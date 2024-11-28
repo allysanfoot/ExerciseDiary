@@ -11,9 +11,10 @@ export const EditExercisePage = ({ exercise }) => {
     const [date, setDate] = useState(exercise.date);
 
     const navigate = useNavigate();
+    const api = process.env.REACT_APP_API_BASE_URL;
 
     const editExercise = async () => {
-        const response = await fetch(`/exercises/${exercise._id}`, {
+        const response = await fetch(`${api}/exercises/${exercise._id}`, {
             method: 'PUT',
             body: JSON.stringify({
                 name: name,
