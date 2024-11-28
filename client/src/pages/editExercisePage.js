@@ -13,7 +13,7 @@ export const EditExercisePage = ({ exercise }) => {
     const navigate = useNavigate();
 
     const editExercise = async () => {
-        const response = await fetch(`/exercises/${exercise._id}`, {
+        const response = await fetch(`http://localhost:3000/exercises/${exercise._id}`, {
             method: 'PUT',
             body: JSON.stringify({
                 name: name,

@@ -31,16 +31,21 @@ function HomePage({ setExercise }) {
 
 
     // DELETE an exercises  
-    const onDeleteExercise = async _id => {
-        const response = await fetch(`/exercises/${_id}`, { method: 'DELETE' });
+    const onDeleteExercise = async (_id) => {
+        const response = await fetch(`http://localhost:3000/exercises/${_id}`, { method: 'DELETE' });
+
         if (response.status === 204) {
-            const getResponse = await fetch('/exercises');
+            alert('Exercise deleted successfully!'); // Display success message
+            // Refresh the exercises list
+            const getResponse = await fetch('http://localhost:3000/exercises');
             const exercises = await getResponse.json();
-            setExercises(exercises);
+            setExercises(exercises); // Update the state with the new list of exercises
         } else {
-            console.error(`Failed to delete exercise with _id = ${_id}, status code = ${response.status}`)
+            console.error(`Failed to delete exercise with _id = ${_id}, status code = ${response.status}`);
+            alert(`Failed to delete exercise, status code = ${response.status}`); // Display error message
         }
-    }
+    };
+
 
     // LOAD the exercises
     useEffect(() => {
