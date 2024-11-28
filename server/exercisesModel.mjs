@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import 'dotenv/config';
 
 // Connect based on the .env file parameters.
-mongoose.connect(process.env.MONGODB_CONNECT_STRING);
+mongoose.connect(process.env.MONGODB_URI);
 
 const db = mongoose.connection;
 
