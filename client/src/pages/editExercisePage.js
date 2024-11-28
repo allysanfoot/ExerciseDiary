@@ -13,6 +13,7 @@ export const EditExercisePage = ({ exercise }) => {
     const navigate = useNavigate();
     const api = process.env.REACT_APP_API_BASE_URL;
 
+    // Update the exercise
     const editExercise = async () => {
         const response = await fetch(`${api}/exercises/${exercise._id}`, {
             method: 'PUT',
