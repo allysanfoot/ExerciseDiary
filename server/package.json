@@ -4,7 +4,8 @@
   "main": "exercisesController.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon exercisesController.mjs"
+    "start": "node exercisesController.mjs",
+    "dev": "nodemon exercisesController.mjs"
   },
   "keywords": [],
   "author": "",
