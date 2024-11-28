@@ -10,10 +10,11 @@ export const AddExercisePage = () => {
     const [date, setDate] = useState('');
     
     const navigate = useNavigate();
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
     const addExercise = async () => {
         const newExercise = { name, reps, weight, unit, date };
-        const response = await fetch('http://localhost:3000/exercises', {
+        const response = await fetch("http://localhost:3000/exercises", {
             method: 'post',
             body: JSON.stringify(newExercise),
             headers: {
