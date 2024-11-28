@@ -12,11 +12,16 @@ function HomePage({ setExercise }) {
 
     // RETRIEVE the list of exercises
     const loadExercises = async () => {
-        const response = await fetch('/exercises');
-        const exercises = await response.json();
-        setExercises(exercises);
-    } 
-    
+        const response = await fetch('http://localhost:3000/exercises');
+        if (response.ok) {
+            const exercises = await response.json();
+            setExercises(exercises); // Save the exercises into state
+        } else {
+            console.error('Failed to load exercises');
+        }
+    };
+
+
 
     // UPDATE an exercise
     const onEditExercise = async exercise => {
@@ -48,10 +53,10 @@ function HomePage({ setExercise }) {
             <article>
                 <h2>List of Exercises</h2>
                 <p>Log your exercises here.</p>
-                <ExerciseList 
-                    exercises={exercises} 
-                    onEdit={onEditExercise} 
-                    onDelete={onDeleteExercise} 
+                <ExerciseList
+                    exercises={exercises}
+                    onEdit={onEditExercise}
+                    onDelete={onDeleteExercise}
                 />
             </article>
         </>
