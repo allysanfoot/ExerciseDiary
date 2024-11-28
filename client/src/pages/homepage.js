@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 function HomePage({ setExercise }) {
     // Use the history for updating
     const navigate = useNavigate();
-    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
     // Use state to bring in the data
     const [exercises, setExercises] = useState([]);
@@ -38,7 +37,7 @@ function HomePage({ setExercise }) {
         if (response.status === 204) {
             alert('Exercise deleted successfully!'); // Display success message
             // Refresh the exercises list
-            const getResponse = await fetch(`${API_BASE_URL}/exercises`);
+            const getResponse = await fetch('/exercises');
             const exercises = await getResponse.json();
             setExercises(exercises); // Update the state with the new list of exercises
         } else {
