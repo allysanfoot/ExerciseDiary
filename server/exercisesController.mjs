@@ -2,10 +2,13 @@ import 'dotenv/config';
 import express from 'express';
 import * as exercises from './exercisesModel.mjs';
 import { body, validationResult } from 'express-validator';
+import cors from 'cors';
 
 const PORT = process.env.PORT;
 const app = express();
+// Middleware
 app.use(express.json());
+app.use(cors({ origin: 'http://localhost:8000' })); // Allow frontend origin
 
 // CREATE controller ******************************************
 app.post('/exercises',
