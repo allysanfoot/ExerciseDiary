@@ -13,7 +13,7 @@ function HomePage({ setExercise }) {
 
     // RETRIEVE the list of exercises
     const loadExercises = async () => {
-        const response = await fetch('http://localhost:3000/exercises');
+        const response = await fetch('/exercises');
         if (response.ok) {
             const exercises = await response.json();
             setExercises(exercises); // Save the exercises into state
@@ -33,7 +33,7 @@ function HomePage({ setExercise }) {
 
     // DELETE an exercises  
     const onDeleteExercise = async (_id) => {
-        const response = await fetch(`http://localhost:3000/exercises/${_id}`, { method: 'DELETE' });
+        const response = await fetch(`/exercises/${_id}`, { method: 'DELETE' });
 
         if (response.status === 204) {
             alert('Exercise deleted successfully!'); // Display success message
