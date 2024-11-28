@@ -4,7 +4,7 @@ import * as exercises from './exercisesModel.mjs';
 import { body, validationResult } from 'express-validator';
 import cors from 'cors';
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 const app = express();
 // Middleware
 app.use(express.json());
