@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 // Middleware
 app.use(express.json());
-app.use(cors({ origin: 'http://localhost:8000' })); // Allow frontend origin
+app.use(cors({ origin: '*' })); // Allow frontend origin
 
 // CREATE controller ******************************************
 app.post('/exercises',
